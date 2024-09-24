@@ -1,49 +1,51 @@
-<div align="center">
-<a href="https://misskey-hub.net">
-	<img src="./assets/title_float.svg" alt="Misskey logo" style="border-radius:50%" width="300"/>
-</a>
+# MISTEMS is Misskey Fork System
 
-**🌎 **Misskey** is an open source, federated social media platform that's free forever! 🚀**
+ほしい機能詰め込みMisskey
 
-[Learn more](https://misskey-hub.net/)
+## 変更点
 
----
+このPRをだいたいぜんぶ入れる
+https://github.com/mistems/mistems/pulls
 
-<a href="https://misskey-hub.net/servers/">
-		<img src="https://custom-icon-badges.herokuapp.com/badge/find_an-instance-acea31?logoColor=acea31&style=for-the-badge&logo=misskey&labelColor=363B40" alt="find an instance"/></a>
+- 投稿フォーム
+  - チャンネルピッカー　追加
+  - 宛先チャンネル表示　追加
+  - CWと本文の入れ替えボタン　追加
+- チャンネル一覧
+  - だいたいぜんぶみるタブ　追加（もっと→チャンネル）
 
-<a href="https://misskey-hub.net/docs/for-admin/install/guides/">
-		<img src="https://custom-icon-badges.herokuapp.com/badge/create_an-instance-FBD53C?logoColor=FBD53C&style=for-the-badge&logo=server&labelColor=363B40" alt="create an instance"/></a>
+- チャンネル周り全般
+  - 既存の投稿ボタンと通常公開範囲の投稿ボタンを両方置く
 
-<a href="./CONTRIBUTING.md">
-		<img src="https://custom-icon-badges.herokuapp.com/badge/become_a-contributor-A371F7?logoColor=A371F7&style=for-the-badge&logo=git-merge&labelColor=363B40" alt="become a contributor"/></a>
+- ショートカットキー
+  - h でショートカットキーヘルプ
 
-<a href="https://discord.gg/Wp8gVStHW3">
-		<img src="https://custom-icon-badges.herokuapp.com/badge/join_the-community-5865F2?logoColor=5865F2&style=for-the-badge&logo=discord&labelColor=363B40" alt="join the community"/></a>
+# 開発者向けドキュメント
+## MISTEMSの作り方
 
-<a href="https://www.patreon.com/syuilo">
-		<img src="https://custom-icon-badges.herokuapp.com/badge/become_a-patron-F96854?logoColor=F96854&style=for-the-badge&logo=patreon&labelColor=363B40" alt="become a patron"/></a>
+### システムブランチ
 
-</div>
+- mistems-admin  - misskey/develop となんとなく一致させる
+- mistems-main  - 後述の方法で misskey/develop 最新に機能ブランチを取り込んだブランチ デプロイするときはこれを使う コミットログはあまり当てにならない
+- mistems-readme - READMEが置いてあるだけで何も無い
 
-## Thanks
+### ブランチの取り込み方
+PRのと見込みはGitHub上ではなくローカルで行う
+```
+git merge --squash 任意ブランチ
+git commit -a -m "メッセージ"
+```
 
-<a href="https://sentry.io/"><img src="https://github.com/misskey-dev/misskey/assets/4439005/98576556-222f-467a-94be-e98dbda1d852" height="30" alt="Sentry" /></a>
+### squash マージ同士の共存（コンフリクトの解除）
+コンフリクトした場合、適宜解決する
+が、毎回コンフリクト解除するのはやってられないので、 git rerere に乗っかる
 
-Thanks to [Sentry](https://sentry.io/) for providing the error tracking platform that helps us catch unexpected errors.
+【Git】同じコンフリクト解消を繰り返している人に教えたい「git rerere」 #初心者 - Qiita https://qiita.com/_ken_/items/64856e91e062b325590f
 
-<a href="https://www.chromatic.com/"><img src="https://user-images.githubusercontent.com/321738/84662277-e3db4f80-af1b-11ea-88f5-91d67a5e59f6.png" height="30" alt="Chromatic" /></a>
+### 機能ブランチを最新に追従させる方法
+git mergeではなくgit rebaseを使わなかればならない
+（squashでのコンフリクト解決が困難になるはず）
 
-Thanks to [Chromatic](https://www.chromatic.com/) for providing the visual testing platform that helps us review UI changes and catch visual regressions.
 
-<a href="https://about.codecov.io/for/open-source/"><img src="https://about.codecov.io/wp-content/themes/codecov/assets/brand/sentry-cobranding/logos/codecov-by-sentry-logo.svg" height="30" alt="Codecov" /></a>
 
-Thanks to [Codecov](https://about.codecov.io/for/open-source/) for providing the code coverage platform that helps us improve our test coverage.
 
-<a href="https://crowdin.com/"><img src="https://user-images.githubusercontent.com/20679825/230709597-1299a011-171a-4294-a91e-355a9b37c672.svg" height="30" alt="Crowdin" /></a>
-
-Thanks to [Crowdin](https://crowdin.com/) for providing the localization platform that helps us translate Misskey into many languages.
-
-<a href="https://hub.docker.com/"><img src="https://user-images.githubusercontent.com/20679825/230148221-f8e73a32-a49b-47c3-9029-9a15c3824f92.png" height="30" alt="Docker" /></a>
-
-Thanks to [Docker](https://hub.docker.com/) for providing the container platform that helps us run Misskey in production.
