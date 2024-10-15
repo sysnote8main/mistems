@@ -1,6 +1,6 @@
-# MISTEMS is Misskey Fork System
+# MISTEMS
 
-ほしい機能詰め込みMisskey
+ほしい機能詰め込み改造Misskey
 
 ## 変更点
 
@@ -23,9 +23,8 @@ https://github.com/mistems/mistems/pulls
 # 開発者向けドキュメント
 ## MISTEMSの作り方
 
-### システムブランチ
+### 管理用ブランチ
 
-- mistems-admin  - misskey/develop となんとなく一致させる
 - mistems-main  - 後述の方法で misskey/develop 最新に機能ブランチを取り込んだブランチ デプロイするときはこれを使う コミットログはあまり当てにならない
 - mistems-readme - READMEが置いてあるだけで何も無い
 
@@ -47,5 +46,5 @@ git mergeではなくgit rebaseを使わなかればならない
 （squashでのコンフリクト解決が困難になるはず）
 
 
-
+なにか書こうとしたけど忘れた気がする
 
